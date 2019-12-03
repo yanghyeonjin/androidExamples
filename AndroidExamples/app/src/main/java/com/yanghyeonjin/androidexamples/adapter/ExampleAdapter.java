@@ -24,8 +24,10 @@ import com.yanghyeonjin.androidexamples.GoogleMapActivity;
 import com.yanghyeonjin.androidexamples.LoadingAnimationActivity;
 import com.yanghyeonjin.androidexamples.LoginActivity;
 import com.yanghyeonjin.androidexamples.MediaPlayerActivity;
+import com.yanghyeonjin.androidexamples.OpenCameraGalleryActivity;
 import com.yanghyeonjin.androidexamples.R;
 import com.yanghyeonjin.androidexamples.RadioButtonActivity;
+import com.yanghyeonjin.androidexamples.ServiceActivity;
 import com.yanghyeonjin.androidexamples.SharedPreferencesActivity;
 import com.yanghyeonjin.androidexamples.ThreadHandlerActivity;
 import com.yanghyeonjin.androidexamples.VideoViewActivity;
@@ -140,6 +142,14 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                     case "CheckBox":
                         Intent intent18 = new Intent(context, CheckBoxActivity.class);
                         context.startActivity(intent18);
+                        break;
+                    case "Service":
+                        Intent intent19 = new Intent(context, ServiceActivity.class);
+                        context.startActivity(intent19);
+                        break;
+                    case "OpenCameraGallery":
+                        Intent intent20 = new Intent(context, OpenCameraGalleryActivity.class);
+                        context.startActivity(intent20);
                         break;
 
                 }
