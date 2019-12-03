@@ -1,18 +1,22 @@
 package com.yanghyeonjin.androidexamples;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +27,8 @@ import com.yanghyeonjin.androidexamples.adapter.ExampleAdapter;
 import com.yanghyeonjin.androidexamples.model.Example;
 import com.yanghyeonjin.androidexamples.receiver.NetworkReceiver;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // 키 해시 알아내기
+        getHashKey();
 
         exampleRecyclerView = findViewById(R.id.rv_example); // 아이디 연결
         exampleRecyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
@@ -151,5 +160,20 @@ public class MainActivity extends AppCompatActivity {
         // 그러나 어디에서도 해제하지 않으면 앱을 종료해도 계속 체크하기 때문에 휴대폰 과부하가 올 수 있음.
         // 따라서 어떤 한 액티비티 내에서는 만들어줘야한다.
         unregisterReceiver(networkReceiver);
+    }
+
+    private void getHashKey(){
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo("com.yanghyeonjin.androidexamples", PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d(LOG_TAG,"key_hash="+Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
     }
 }

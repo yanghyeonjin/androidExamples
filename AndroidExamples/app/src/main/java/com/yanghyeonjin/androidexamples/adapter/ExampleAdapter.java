@@ -21,6 +21,7 @@ import com.yanghyeonjin.androidexamples.ComebackActivity;
 import com.yanghyeonjin.androidexamples.CustomNavigationMenuActivity;
 import com.yanghyeonjin.androidexamples.DialogActivity;
 import com.yanghyeonjin.androidexamples.GoogleMapActivity;
+import com.yanghyeonjin.androidexamples.KakaoLoginActivity;
 import com.yanghyeonjin.androidexamples.LoadingAnimationActivity;
 import com.yanghyeonjin.androidexamples.LoginActivity;
 import com.yanghyeonjin.androidexamples.MediaPlayerActivity;
@@ -151,7 +152,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         Intent intent20 = new Intent(context, OpenCameraGalleryActivity.class);
                         context.startActivity(intent20);
                         break;
-
+                    case "KakaoLogin":
+                        Intent intent21 = new Intent(context, KakaoLoginActivity.class);
+                        context.startActivity(intent21);
+                        break;
                 }
             }
         });
