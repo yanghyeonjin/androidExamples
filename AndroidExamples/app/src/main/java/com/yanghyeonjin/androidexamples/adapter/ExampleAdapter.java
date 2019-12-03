@@ -13,14 +13,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.yanghyeonjin.androidexamples.BackgroundMusicActivity;
+import com.yanghyeonjin.androidexamples.BottomNavigationActivity;
+import com.yanghyeonjin.androidexamples.ButtonSelectorActivity;
 import com.yanghyeonjin.androidexamples.CameraPreviewActivity;
+import com.yanghyeonjin.androidexamples.CheckBoxActivity;
+import com.yanghyeonjin.androidexamples.ComebackActivity;
 import com.yanghyeonjin.androidexamples.CustomNavigationMenuActivity;
 import com.yanghyeonjin.androidexamples.DialogActivity;
+import com.yanghyeonjin.androidexamples.GoogleMapActivity;
 import com.yanghyeonjin.androidexamples.LoadingAnimationActivity;
+import com.yanghyeonjin.androidexamples.LoginActivity;
 import com.yanghyeonjin.androidexamples.MediaPlayerActivity;
 import com.yanghyeonjin.androidexamples.R;
+import com.yanghyeonjin.androidexamples.RadioButtonActivity;
 import com.yanghyeonjin.androidexamples.SharedPreferencesActivity;
 import com.yanghyeonjin.androidexamples.ThreadHandlerActivity;
+import com.yanghyeonjin.androidexamples.VideoViewActivity;
+import com.yanghyeonjin.androidexamples.ViewPagerActivity;
 import com.yanghyeonjin.androidexamples.WebViewActivity;
 import com.yanghyeonjin.androidexamples.model.Example;
 
@@ -95,6 +104,42 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                     case "MediaPlayer":
                         Intent intent9 = new Intent(context, MediaPlayerActivity.class);
                         context.startActivity(intent9);
+                        break;
+                    case "GoogleMap":
+                        Intent intent10 = new Intent(context, GoogleMapActivity.class);
+                        context.startActivity(intent10);
+                        break;
+                    case "BottomNavigation":
+                        Intent intent11 = new Intent(context, BottomNavigationActivity.class);
+                        context.startActivity(intent11);
+                        break;
+                    case "StartActivityForResult":
+                        Intent intent12 = new Intent(context, ComebackActivity.class);
+                        context.startActivity(intent12);
+                        break;
+                    case "ButtonSelector":
+                        Intent intent13 = new Intent(context, ButtonSelectorActivity.class);
+                        context.startActivity(intent13);
+                        break;
+                    case "LoginSignUp":
+                        Intent intent14 = new Intent(context, LoginActivity.class);
+                        context.startActivity(intent14);
+                        break;
+                    case "FullVideo":
+                        Intent intent15 = new Intent(context, VideoViewActivity.class);
+                        context.startActivity(intent15);
+                        break;
+                    case "ViewPager":
+                        Intent intent16 = new Intent(context, ViewPagerActivity.class);
+                        context.startActivity(intent16);
+                        break;
+                    case "RadioButton":
+                        Intent intent17 = new Intent(context, RadioButtonActivity.class);
+                        context.startActivity(intent17);
+                        break;
+                    case "CheckBox":
+                        Intent intent18 = new Intent(context, CheckBoxActivity.class);
+                        context.startActivity(intent18);
                         break;
 
                 }

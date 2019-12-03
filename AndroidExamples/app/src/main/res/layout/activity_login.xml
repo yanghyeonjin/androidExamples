@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/tv_host"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="guswls7081@dothome.co.kr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tv_host_expire"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="유효기간: 2020-11-15"
+        app:layout_constraintEnd_toEndOf="@+id/tv_host"
+        app:layout_constraintStart_toStartOf="@+id/tv_host"
+        app:layout_constraintTop_toBottomOf="@+id/tv_host" />
+
+    <EditText
+        android:id="@+id/et_login_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="아이디"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/tv_host"
+        app:layout_constraintStart_toStartOf="@+id/tv_host"
+        app:layout_constraintTop_toBottomOf="@+id/tv_host_expire"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/et_login_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="비밀번호"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/tv_host"
+        app:layout_constraintStart_toStartOf="@+id/tv_host"
+        app:layout_constraintTop_toBottomOf="@+id/et_login_id"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="로그인"
+        app:layout_constraintEnd_toEndOf="@+id/tv_host"
+        app:layout_constraintStart_toStartOf="@+id/tv_host"
+        app:layout_constraintTop_toBottomOf="@+id/et_login_password" />
+
+    <Button
+        android:id="@+id/btn_sign_up"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="회원가입"
+        app:layout_constraintEnd_toEndOf="@+id/tv_host"
+        app:layout_constraintStart_toStartOf="@+id/tv_host"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

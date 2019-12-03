@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 버튼이 눌렸을 때 -->
+    <item android:state_pressed="true">
+        <shape>
+            <!-- 색상 -->
+            <solid android:color="#9CBEFF"/>
+
+            <!-- 모서리 -->
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+
+    <!-- 버튼이 눌리지 않았을 때. 버튼이 눌렸을 때 프리뷰는 제공되지 않기 때문에 이 부분에서 작업하면 미리볼 수 있다. -->
+    <item android:state_pressed="false">
+        <shape>
+            <!-- 색상 -->
+            <solid android:color="#448AFF"/>
+
+            <!-- 모서리 -->
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+
+</selector>

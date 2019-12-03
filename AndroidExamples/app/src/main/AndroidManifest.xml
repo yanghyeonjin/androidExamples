@@ -18,7 +18,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MediaPlayerActivity"></activity>
+        <activity android:name=".CheckBoxActivity"></activity>
+        <activity android:name=".RadioButtonActivity" />
+        <activity android:name=".ViewPagerActivity" />
+        <activity
+            android:name=".VideoViewActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".LoginSuccessActivity" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ButtonSelectorActivity" />
+        <activity android:name=".ComebackSubActivity" />
+        <activity android:name=".ComebackActivity" />
+        <activity android:name=".BottomNavigationActivity" />
+        <activity android:name=".GoogleMapActivity" />
+        <activity android:name=".MediaPlayerActivity" />
         <activity android:name=".LoadingAnimationActivity" />
         <activity android:name=".BackgroundMusicActivity" />
         <activity android:name=".DialogActivity" />
@@ -35,6 +49,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_map_key" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

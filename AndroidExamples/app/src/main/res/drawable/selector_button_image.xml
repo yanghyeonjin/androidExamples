@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 버튼이 눌렸을 때 -->
+    <item android:state_pressed="true" android:drawable="@drawable/heart">
+
+    </item>
+
+    <!-- 버튼이 눌리지 않았을 때. 버튼이 눌렸을 때 프리뷰는 제공되지 않기 때문에 이 부분에서 작업하면 미리볼 수 있다. -->
+    <item android:state_pressed="false" android:drawable="@drawable/happy">
+    </item>
+
+</selector>

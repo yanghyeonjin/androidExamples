@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
+
+    <EditText
+        android:id="@+id/et_sign_up_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="아이디"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/et_sign_up_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="비밀번호"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/et_sign_up_id"
+        app:layout_constraintStart_toStartOf="@+id/et_sign_up_id"
+        app:layout_constraintTop_toBottomOf="@+id/et_sign_up_id"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/et_sign_up_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="이름"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/et_sign_up_password"
+        app:layout_constraintStart_toStartOf="@+id/et_sign_up_password"
+        app:layout_constraintTop_toBottomOf="@+id/et_sign_up_password"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/et_sign_up_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="나이"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/et_sign_up_name"
+        app:layout_constraintStart_toStartOf="@+id/et_sign_up_name"
+        app:layout_constraintTop_toBottomOf="@+id/et_sign_up_name"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="가입"
+        app:layout_constraintEnd_toEndOf="@+id/et_sign_up_age"
+        app:layout_constraintStart_toStartOf="@+id/et_sign_up_age"
+        app:layout_constraintTop_toBottomOf="@+id/et_sign_up_age" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
