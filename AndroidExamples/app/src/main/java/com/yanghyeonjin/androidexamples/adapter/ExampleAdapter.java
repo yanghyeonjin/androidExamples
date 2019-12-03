@@ -12,9 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.yanghyeonjin.androidexamples.BackgroundMusicActivity;
 import com.yanghyeonjin.androidexamples.CameraPreviewActivity;
 import com.yanghyeonjin.androidexamples.CustomNavigationMenuActivity;
 import com.yanghyeonjin.androidexamples.DialogActivity;
+import com.yanghyeonjin.androidexamples.LoadingAnimationActivity;
+import com.yanghyeonjin.androidexamples.MediaPlayerActivity;
 import com.yanghyeonjin.androidexamples.R;
 import com.yanghyeonjin.androidexamples.SharedPreferencesActivity;
 import com.yanghyeonjin.androidexamples.ThreadHandlerActivity;
@@ -80,6 +83,18 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                     case "Dialog":
                         Intent intent6 = new Intent(context, DialogActivity.class);
                         context.startActivity(intent6);
+                        break;
+                    case "BackgroundMusic":
+                        Intent intent7 = new Intent(context, BackgroundMusicActivity.class);
+                        context.startActivity(intent7);
+                        break;
+                    case "LoadingAnimation":
+                        Intent intent8 = new Intent(context, LoadingAnimationActivity.class);
+                        context.startActivity(intent8);
+                        break;
+                    case "MediaPlayer":
+                        Intent intent9 = new Intent(context, MediaPlayerActivity.class);
+                        context.startActivity(intent9);
                         break;
 
                 }

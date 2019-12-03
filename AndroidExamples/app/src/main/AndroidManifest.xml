@@ -18,7 +18,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DialogActivity"></activity>
+        <activity android:name=".MediaPlayerActivity"></activity>
+        <activity android:name=".LoadingAnimationActivity" />
+        <activity android:name=".BackgroundMusicActivity" />
+        <activity android:name=".DialogActivity" />
         <activity android:name=".ThreadHandlerActivity" />
         <activity android:name=".CameraPreviewActivity" />
         <activity android:name=".CustomNavigationMenuActivity" />
@@ -42,6 +45,8 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <service android:name=".service.MusicService" />
     </application>
 
 </manifest>

@@ -29,6 +29,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0' // androidx 대응
     implementation 'com.google.firebase:firebase-database:19.2.0'
     implementation 'gun0912.ted:tedpermission:2.2.2'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0' // 로딩 화면 라이브러리
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
