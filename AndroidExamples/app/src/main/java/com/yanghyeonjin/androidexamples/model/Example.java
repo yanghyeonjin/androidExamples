@@ -2,10 +2,16 @@ package com.yanghyeonjin.androidexamples.model;
 
 public class Example {
     private String image;
-    private String helper;
+    private String category;
     private String title;
 
     public Example() {}
+
+    public Example(String image, String category, String title) {
+        this.image = image;
+        this.category = category;
+        this.title = title;
+    }
 
     public String getImage() {
         return image;
@@ -15,12 +21,12 @@ public class Example {
         this.image = image;
     }
 
-    public String getHelper() {
-        return helper;
+    public String getCategory() {
+        return category;
     }
 
-    public void setHelper(String helper) {
-        this.helper = helper;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getTitle() {

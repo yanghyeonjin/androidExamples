@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter exampleAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Example> exampleArrayList;
+    private TextView goToAddExampleButton;
 
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
@@ -84,6 +88,18 @@ public class MainActivity extends AppCompatActivity {
         // NetworkReceiver 클래스의 intent.getAction()과 연관있음.
         intentFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
         registerReceiver(networkReceiver, intentFilter);
+
+        goToAddExampleButton = findViewById(R.id.btn_go_to_add_example);
+        goToAddExampleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AddExampleActivity.class);
+                int arraySize = exampleArrayList.size();
+                arraySize++; // 추가되는 예제의 아이디
+                intent.putExtra("total", arraySize);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -97,6 +113,33 @@ public class MainActivity extends AppCompatActivity {
             backBtnTime = curTime;
             Toast.makeText(this, "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // 파이어베이스 데이터베이스의 데이터를 받아오는 부분
+
+                exampleArrayList.clear(); // 기존 배열리스트가 존재하지 않게 초기화
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) { // 반복문으로 데이터 리스트 추출
+                    Example example = snapshot.getValue(Example.class); // Example 객체에 데이터를 담는다.
+                    exampleArrayList.add(example); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비를 한다.
+                }
+                exampleAdapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) { // DB를 가져오던 중 에러 발생 시
+                Log.e(LOG_TAG, String.valueOf(databaseError.toException())); // 로그로 에러 출력
+
+            }
+        });
+
+
     }
 
     @Override
