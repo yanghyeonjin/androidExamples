@@ -69,94 +69,107 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String clickedExampleNumber = exampleArrayList.get(position).getTitle();
+                String selectedExamTitle = exampleArrayList.get(position).getTitle();
+                String selectedExamCategory = exampleArrayList.get(position).getCategory();
 
-                switch (clickedExampleNumber) {
-                    case "SharedPreferences":
-                        Intent intent1 = new Intent(context, SharedPreferencesActivity.class);
-                        context.startActivity(intent1);
-                        break;
-                    case "WebView":
-                        Intent intent2 = new Intent(context, WebViewActivity.class);
-                        context.startActivity(intent2);
-                        break;
-                    case "CustomNavigationMenu":
-                        Intent intent3 = new Intent(context, CustomNavigationMenuActivity.class);
-                        context.startActivity(intent3);
-                        break;
-                    case "CameraPreview":
-                        Intent intent4 = new Intent(context, CameraPreviewActivity.class);
-                        context.startActivity(intent4);
-                        break;
-                    case "ThreadHandler":
-                        Intent intent5 = new Intent(context, ThreadHandlerActivity.class);
-                        context.startActivity(intent5);
-                        break;
-                    case "Dialog":
-                        Intent intent6 = new Intent(context, DialogActivity.class);
-                        context.startActivity(intent6);
-                        break;
-                    case "BackgroundMusic":
-                        Intent intent7 = new Intent(context, BackgroundMusicActivity.class);
-                        context.startActivity(intent7);
-                        break;
-                    case "LoadingAnimation":
-                        Intent intent8 = new Intent(context, LoadingAnimationActivity.class);
-                        context.startActivity(intent8);
-                        break;
-                    case "MediaPlayer":
-                        Intent intent9 = new Intent(context, MediaPlayerActivity.class);
-                        context.startActivity(intent9);
-                        break;
-                    case "GoogleMap":
-                        Intent intent10 = new Intent(context, GoogleMapActivity.class);
-                        context.startActivity(intent10);
-                        break;
-                    case "BottomNavigation":
-                        Intent intent11 = new Intent(context, BottomNavigationActivity.class);
-                        context.startActivity(intent11);
-                        break;
-                    case "StartActivityForResult":
-                        Intent intent12 = new Intent(context, ComebackActivity.class);
-                        context.startActivity(intent12);
-                        break;
-                    case "ButtonSelector":
-                        Intent intent13 = new Intent(context, ButtonSelectorActivity.class);
-                        context.startActivity(intent13);
-                        break;
-                    case "LoginSignUp":
-                        Intent intent14 = new Intent(context, LoginActivity.class);
-                        context.startActivity(intent14);
-                        break;
-                    case "FullVideo":
-                        Intent intent15 = new Intent(context, VideoViewActivity.class);
-                        context.startActivity(intent15);
-                        break;
-                    case "ViewPager":
-                        Intent intent16 = new Intent(context, ViewPagerActivity.class);
-                        context.startActivity(intent16);
-                        break;
-                    case "RadioButton":
-                        Intent intent17 = new Intent(context, RadioButtonActivity.class);
-                        context.startActivity(intent17);
-                        break;
-                    case "CheckBox":
-                        Intent intent18 = new Intent(context, CheckBoxActivity.class);
-                        context.startActivity(intent18);
-                        break;
-                    case "Service":
-                        Intent intent19 = new Intent(context, ServiceActivity.class);
-                        context.startActivity(intent19);
-                        break;
-                    case "OpenCameraGallery":
-                        Intent intent20 = new Intent(context, OpenCameraGalleryActivity.class);
-                        context.startActivity(intent20);
-                        break;
-                    case "KakaoLogin":
-                        Intent intent21 = new Intent(context, KakaoLoginActivity.class);
-                        context.startActivity(intent21);
-                        break;
+                if (selectedExamCategory.equals("홍드로이드")) {
+                    switch (selectedExamTitle) {
+                        case "SharedPreferences":
+                            Intent intent1 = new Intent(context, SharedPreferencesActivity.class);
+                            context.startActivity(intent1);
+                            break;
+                        case "WebView":
+                            Intent intent2 = new Intent(context, WebViewActivity.class);
+                            context.startActivity(intent2);
+                            break;
+                        case "CustomNavigationMenu":
+                            Intent intent3 = new Intent(context, CustomNavigationMenuActivity.class);
+                            context.startActivity(intent3);
+                            break;
+                        case "CameraPreview":
+                            Intent intent4 = new Intent(context, CameraPreviewActivity.class);
+                            context.startActivity(intent4);
+                            break;
+                        case "ThreadHandler":
+                            Intent intent5 = new Intent(context, ThreadHandlerActivity.class);
+                            context.startActivity(intent5);
+                            break;
+                        case "Dialog":
+                            Intent intent6 = new Intent(context, DialogActivity.class);
+                            context.startActivity(intent6);
+                            break;
+                        case "BackgroundMusic":
+                            Intent intent7 = new Intent(context, BackgroundMusicActivity.class);
+                            context.startActivity(intent7);
+                            break;
+                        case "LoadingAnimation":
+                            Intent intent8 = new Intent(context, LoadingAnimationActivity.class);
+                            context.startActivity(intent8);
+                            break;
+                        case "MediaPlayer":
+                            Intent intent9 = new Intent(context, MediaPlayerActivity.class);
+                            context.startActivity(intent9);
+                            break;
+                        case "GoogleMap":
+                            Intent intent10 = new Intent(context, GoogleMapActivity.class);
+                            context.startActivity(intent10);
+                            break;
+                        case "BottomNavigation":
+                            Intent intent11 = new Intent(context, BottomNavigationActivity.class);
+                            context.startActivity(intent11);
+                            break;
+                        case "StartActivityForResult":
+                            Intent intent12 = new Intent(context, ComebackActivity.class);
+                            context.startActivity(intent12);
+                            break;
+                        case "ButtonSelector":
+                            Intent intent13 = new Intent(context, ButtonSelectorActivity.class);
+                            context.startActivity(intent13);
+                            break;
+                        case "LoginSignUp":
+                            Intent intent14 = new Intent(context, LoginActivity.class);
+                            context.startActivity(intent14);
+                            break;
+                        case "FullVideo":
+                            Intent intent15 = new Intent(context, VideoViewActivity.class);
+                            context.startActivity(intent15);
+                            break;
+                        case "ViewPager":
+                            Intent intent16 = new Intent(context, ViewPagerActivity.class);
+                            context.startActivity(intent16);
+                            break;
+                        case "RadioButton":
+                            Intent intent17 = new Intent(context, RadioButtonActivity.class);
+                            context.startActivity(intent17);
+                            break;
+                        case "CheckBox":
+                            Intent intent18 = new Intent(context, CheckBoxActivity.class);
+                            context.startActivity(intent18);
+                            break;
+                    }
+
+                } else if (selectedExamCategory.equals("Do it! 개정 5판")) {
+                    switch (selectedExamTitle) {
+                        case "Service":
+                            Intent intent19 = new Intent(context, ServiceActivity.class);
+                            context.startActivity(intent19);
+                            break;
+                    }
+
+                } else if (selectedExamCategory.equals("기타")) {
+                    switch (selectedExamTitle) {
+                        case "OpenCameraGallery":
+                            Intent intent20 = new Intent(context, OpenCameraGalleryActivity.class);
+                            context.startActivity(intent20);
+                            break;
+                        case "KakaoLogin":
+                            Intent intent21 = new Intent(context, KakaoLoginActivity.class);
+                            context.startActivity(intent21);
+                            break;
+                    }
                 }
+
+
             }
         });
     }

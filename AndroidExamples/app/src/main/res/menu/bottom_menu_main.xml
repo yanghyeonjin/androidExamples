@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_hongdroid"
+        android:enabled="true"
+        android:icon="@drawable/ic_train_black_24dp"
+        android:title="홍드로이드"/>
+
+    <item
+        android:id="@+id/menu_doit"
+        android:icon="@drawable/ic_event_available_black_24dp"
+        android:enabled="true"
+        android:title="Do it!"/>
+
+    <item
+        android:id="@+id/menu_etc"
+        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:enabled="true"
+        android:title="기타"/>
+</menu>
