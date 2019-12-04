@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KakaoLoginSuccessActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:id="@+id/linear_kakao_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="아이디" />
+
+            <TextView
+                android:id="@+id/tv_kakao_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_kakao_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/linear_kakao_id"
+            app:layout_constraintStart_toStartOf="@+id/linear_kakao_id"
+            app:layout_constraintTop_toBottomOf="@+id/linear_kakao_id">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="이메일" />
+
+            <TextView
+                android:id="@+id/tv_kakao_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_kakao_birth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/linear_kakao_email"
+            app:layout_constraintStart_toStartOf="@+id/linear_kakao_email"
+            app:layout_constraintTop_toBottomOf="@+id/linear_kakao_email">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="생일" />
+
+            <TextView
+                android:id="@+id/tv_kakao_birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_kakao_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/linear_kakao_birth"
+            app:layout_constraintStart_toStartOf="@+id/linear_kakao_birth"
+            app:layout_constraintTop_toBottomOf="@+id/linear_kakao_birth">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="휴대폰번호" />
+
+            <TextView
+                android:id="@+id/tv_kakao_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_kakao_age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/linear_kakao_phone"
+            app:layout_constraintStart_toStartOf="@+id/linear_kakao_phone"
+            app:layout_constraintTop_toBottomOf="@+id/linear_kakao_phone">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="연령대" />
+
+            <TextView
+                android:id="@+id/tv_kakao_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_kakao_gender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/linear_kakao_age"
+            app:layout_constraintStart_toStartOf="@+id/linear_kakao_age"
+            app:layout_constraintTop_toBottomOf="@+id/linear_kakao_age">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="성별" />
+
+            <TextView
+                android:id="@+id/tv_kakao_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_is_kakaotalk_user"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/linear_kakao_gender"
+            app:layout_constraintStart_toStartOf="@+id/linear_kakao_gender"
+            app:layout_constraintTop_toBottomOf="@+id/linear_kakao_gender">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="카카오톡 사용자?" />
+
+            <TextView
+                android:id="@+id/tv_is_kakaotalk_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_is_email_valid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/linear_is_kakaotalk_user"
+            app:layout_constraintStart_toStartOf="@+id/linear_is_kakaotalk_user"
+            app:layout_constraintTop_toBottomOf="@+id/linear_is_kakaotalk_user">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="이메일 유효?" />
+
+            <TextView
+                android:id="@+id/tv_is_email_valid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_is_email_verified"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/linear_is_email_valid"
+            app:layout_constraintStart_toStartOf="@+id/linear_is_email_valid"
+            app:layout_constraintTop_toBottomOf="@+id/linear_is_email_valid">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="이메일 인증?" />
+
+            <TextView
+                android:id="@+id/tv_is_email_verified"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_buttons"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="end"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/linear_is_email_verified"
+            app:layout_constraintStart_toStartOf="@+id/linear_is_email_verified"
+            app:layout_constraintTop_toBottomOf="@+id/linear_is_email_verified">
+
+            <Button
+                android:id="@+id/btn_logout_kakao"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="로그아웃" />
+
+            <Button
+                android:id="@+id/btn_delete_kakao_account"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="회원탈퇴" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_kakao_nickname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/linear_buttons"
+            app:layout_constraintStart_toStartOf="@+id/linear_buttons"
+            app:layout_constraintTop_toBottomOf="@+id/linear_buttons">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="닉네임" />
+
+            <TextView
+                android:id="@+id/tv_kakao_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_kakao_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/linear_kakao_nickname"
+            app:layout_constraintStart_toStartOf="@+id/linear_kakao_nickname"
+            app:layout_constraintTop_toBottomOf="@+id/linear_kakao_nickname">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="프로필" />
+
+            <ImageView
+                android:id="@+id/iv_kakao_profile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@android:color/darker_gray"
+                android:scaleType="center" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

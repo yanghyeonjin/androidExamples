@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".KakaoLoginActivity"></activity>
+        <activity android:name=".KakaoLoginSuccessActivity"></activity>
+        <activity android:name=".KakaoLoginActivity" />
         <activity android:name=".OpenCameraGalleryActivity" />
         <activity android:name=".ServiceActivity" />
         <activity android:name=".CheckBoxActivity" />
