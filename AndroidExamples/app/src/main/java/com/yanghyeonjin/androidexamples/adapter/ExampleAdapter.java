@@ -25,6 +25,7 @@ import com.yanghyeonjin.androidexamples.KakaoLoginActivity;
 import com.yanghyeonjin.androidexamples.LoadingAnimationActivity;
 import com.yanghyeonjin.androidexamples.LoginActivity;
 import com.yanghyeonjin.androidexamples.MediaPlayerActivity;
+import com.yanghyeonjin.androidexamples.NaverLoginActivity;
 import com.yanghyeonjin.androidexamples.OpenCameraGalleryActivity;
 import com.yanghyeonjin.androidexamples.R;
 import com.yanghyeonjin.androidexamples.RadioButtonActivity;
@@ -165,6 +166,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "KakaoLogin":
                             Intent intent21 = new Intent(context, KakaoLoginActivity.class);
                             context.startActivity(intent21);
+                            break;
+                        case "NaverLogin":
+                            Intent intent22 = new Intent(context, NaverLoginActivity.class);
+                            context.startActivity(intent22);
                             break;
                     }
                 }
