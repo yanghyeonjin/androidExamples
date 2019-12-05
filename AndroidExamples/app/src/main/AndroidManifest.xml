@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".KakaoLoginSuccessActivity"></activity>
+        <activity android:name=".BigImageActivity"></activity>
+        <activity android:name=".KakaoLoginSuccessActivity" />
         <activity android:name=".KakaoLoginActivity" />
         <activity android:name=".OpenCameraGalleryActivity" />
         <activity android:name=".ServiceActivity" />
@@ -58,8 +59,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_map_key" />
-
-        <!-- 카카오 -->
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
