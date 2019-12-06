@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
+import com.nhn.android.naverlogin.data.OAuthLoginState;
 import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 
 import org.json.JSONObject;
@@ -49,15 +50,13 @@ public class NaverLoginActivity extends AppCompatActivity {
         mOAuthLoginModule = OAuthLogin.getInstance();
         mOAuthLoginModule.init(NaverLoginActivity.this, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, OAUTH_CLIENT_NAME);
 
-        /* 자동로그인 ? */
-        mOAuthLoginModule.startOauthLoginActivity(NaverLoginActivity.this, mOAuthLoginHandler);
-
         /* 네이버 아이디로 로그인 버튼 */
         mOAuthLoginButton = findViewById(R.id.btn_naver_login);
-        mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
-        // mOAuthLoginButton.setBgResourceId(R.drawable.img_loginbtn_usercustom);
-
-        mOAuthLoginButton.setOnClickListener(view -> mOAuthLoginModule.startOauthLoginActivity(NaverLoginActivity.this, mOAuthLoginHandler));
+        if (mOAuthLoginModule.getAccessToken(this) != null) {
+            mOAuthLoginModule.startOauthLoginActivity(this, mOAuthLoginHandler);
+        } else {
+            mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
+        }
     }
 
     private OAuthLoginHandler mOAuthLoginHandler = new NaverLoginHandler(this);
@@ -103,7 +102,22 @@ public class NaverLoginActivity extends AppCompatActivity {
 
             @Override
             protected String doInBackground(String... strings) {
-                String token = strings[0]; // 네이버 로그인 접근 토큰
+                String token; // 네이버 로그인 접근 토큰
+
+
+                OAuthLogin mOAuthLoginInstance = OAuthLogin.getInstance();
+
+                if (mOAuthLoginInstance.getState(mActivity.get()).equals(OAuthLoginState.NEED_REFRESH_TOKEN)) {
+                    /* 토큰 갱신이 필요한 상태라면 */
+                    Log.e("NaverLogin", "NEED_REFRESH_TOKEN");
+                    mOAuthLoginInstance.refreshAccessToken(mActivity.get());
+                    token = mOAuthLoginInstance.getAccessToken(mActivity.get());
+                } else {
+                    /* 토큰 갱신이 필요하지 않다면 전달받은 접근토큰 사용 */
+                    token = strings[0];
+                }
+
+
                 String header = "Bearer " + token; // Bearer 다음에 공백 추가
 
                 try {
