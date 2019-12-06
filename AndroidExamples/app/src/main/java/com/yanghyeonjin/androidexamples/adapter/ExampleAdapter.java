@@ -21,6 +21,7 @@ import com.yanghyeonjin.androidexamples.ComebackActivity;
 import com.yanghyeonjin.androidexamples.CustomNavigationMenuActivity;
 import com.yanghyeonjin.androidexamples.DialogActivity;
 import com.yanghyeonjin.androidexamples.FacebookLoginActivity;
+import com.yanghyeonjin.androidexamples.FirebaseStorageActivity;
 import com.yanghyeonjin.androidexamples.GoogleMapActivity;
 import com.yanghyeonjin.androidexamples.KakaoLoginActivity;
 import com.yanghyeonjin.androidexamples.LoadingAnimationActivity;
@@ -175,6 +176,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "FacebookLogin":
                             Intent intent23 = new Intent(context, FacebookLoginActivity.class);
                             context.startActivity(intent23);
+                            break;
+                        case "Firebase Storage":
+                            Intent intent24 = new Intent(context, FirebaseStorageActivity.class);
+                            context.startActivity(intent24);
                             break;
                     }
                 }

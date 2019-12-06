@@ -43,6 +43,7 @@ dependencies {
     /* 파이어베이스 */
     implementation 'com.google.firebase:firebase-database:19.2.0'
     implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-storage:19.1.0'
 
     /* 권한 설정 라이브러리 */
     implementation 'gun0912.ted:tedpermission:2.2.2'
