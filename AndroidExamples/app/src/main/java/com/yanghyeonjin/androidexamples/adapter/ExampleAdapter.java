@@ -20,6 +20,7 @@ import com.yanghyeonjin.androidexamples.CheckBoxActivity;
 import com.yanghyeonjin.androidexamples.ComebackActivity;
 import com.yanghyeonjin.androidexamples.CustomNavigationMenuActivity;
 import com.yanghyeonjin.androidexamples.DialogActivity;
+import com.yanghyeonjin.androidexamples.FacebookLoginActivity;
 import com.yanghyeonjin.androidexamples.GoogleMapActivity;
 import com.yanghyeonjin.androidexamples.KakaoLoginActivity;
 import com.yanghyeonjin.androidexamples.LoadingAnimationActivity;
@@ -170,6 +171,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "NaverLogin":
                             Intent intent22 = new Intent(context, NaverLoginActivity.class);
                             context.startActivity(intent22);
+                            break;
+                        case "FacebookLogin":
+                            Intent intent23 = new Intent(context, FacebookLoginActivity.class);
+                            context.startActivity(intent23);
                             break;
                     }
                 }

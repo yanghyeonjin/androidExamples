@@ -4,6 +4,9 @@ buildscript {
     repositories {
         google()
         jcenter()
+
+        /* 페이스북 */
+        mavenCentral()
         
     }
     dependencies {
