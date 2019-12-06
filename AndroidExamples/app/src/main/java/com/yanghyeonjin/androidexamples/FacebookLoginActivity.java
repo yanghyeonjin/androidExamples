@@ -5,21 +5,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.Profile;
-import com.facebook.appevents.AppEventsLogger;
-import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,11 +33,14 @@ public class FacebookLoginActivity extends AppCompatActivity {
 
     private Context fbLoginContext;
 
-    private CallbackManager callbackManager;
-    private LoginButton btnFacebookLogin;
+    private CallbackManager callbackManager, callbackManagerFirebase;
+    private LoginButton btnFacebookLogin, btnFacebookLoginFirebase;
     private FacebookLoginCallback facebookLoginCallback; // 직접 만든 클래스
 
     private static final String LOG_TAG = "FacebookLogin";
+
+    /* 파이어베이스 인증 객체 */
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +49,41 @@ public class FacebookLoginActivity extends AppCompatActivity {
 
         fbLoginContext = getApplicationContext();
 
+        /* 파이어베이스 인증 객체 선언 */
+        firebaseAuth = FirebaseAuth.getInstance();
+
+
+
+        /* 페이스북 콜백 등록 (facebook developers) */
         callbackManager = CallbackManager.Factory.create();
         facebookLoginCallback = new FacebookLoginCallback();
 
         btnFacebookLogin = findViewById(R.id.btn_login_facebook);
         btnFacebookLogin.setPermissions(Arrays.asList("public_profile", "email"));
         btnFacebookLogin.registerCallback(callbackManager, facebookLoginCallback);
+
+
+
+        /* 페이스북 콜백 등록 (use firebase) */
+        callbackManagerFirebase = CallbackManager.Factory.create();
+        btnFacebookLoginFirebase = findViewById(R.id.btn_login_facebook_use_firebase);
+        btnFacebookLoginFirebase.setPermissions("email", "public_profile");
+        btnFacebookLoginFirebase.registerCallback(callbackManagerFirebase, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                handleFacebookAccessToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+        });
 
 
 
@@ -65,7 +100,10 @@ public class FacebookLoginActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        /* 페이스북 콜백 등록 */
         callbackManager.onActivityResult(requestCode, resultCode, data);
+        callbackManagerFirebase.onActivityResult(requestCode, resultCode, data);
+
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -118,4 +156,23 @@ public class FacebookLoginActivity extends AppCompatActivity {
             graphRequest.executeAsync();
         }
     }
+
+    private void handleFacebookAccessToken(AccessToken token) {
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        firebaseAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            /* 로그인 성공 */
+                            Log.e(LOG_TAG, "페이스북 로그인 성공 (파이어베이스)");
+                        } else {
+                            /* 로그인 실패 */
+                            Log.e(LOG_TAG, "페이스북 로그인 실패 (파이어베이스)");
+                        }
+                    }
+                });
+    }
+
+
 }
