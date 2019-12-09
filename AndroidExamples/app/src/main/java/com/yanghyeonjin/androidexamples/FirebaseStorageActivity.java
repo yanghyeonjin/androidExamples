@@ -20,10 +20,13 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.yanghyeonjin.androidexamples.model.Image;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -106,8 +109,9 @@ public class FirebaseStorageActivity extends AppCompatActivity {
             ProgressBar progressBar = findViewById(R.id.pb_progressbar);
 
 
-            /* storage */
+            /* Firebase */
             FirebaseStorage storage = FirebaseStorage.getInstance();
+            DatabaseReference imageTable = FirebaseDatabase.getInstance().getReference().child("image");
 
             /* Unique한 파일명 만들기 */
             @SuppressLint("SimpleDateFormat")
@@ -127,6 +131,10 @@ public class FirebaseStorageActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "업로드 완료!", Toast.LENGTH_SHORT).show();
                             ivPreviewImage.setImageResource(android.R.color.transparent);
                             progressBar.setProgress(0);
+
+                            /* 데이터베이스에 저장 */
+                            Image newImage = new Image("images/" + filename);
+                            imageTable.child(dateFormat.format(now)).setValue(newImage);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
