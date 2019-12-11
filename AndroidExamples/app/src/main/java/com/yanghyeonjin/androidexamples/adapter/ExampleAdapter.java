@@ -79,75 +79,75 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
                 if (selectedExamCategory.equals("홍드로이드")) {
                     switch (selectedExamTitle) {
-                        case "SharedPreferences":
+                        case "#1 SharedPreferences":
                             Intent intent1 = new Intent(context, SharedPreferencesActivity.class);
                             context.startActivity(intent1);
                             break;
-                        case "WebView":
+                        case "#2 WebView":
                             Intent intent2 = new Intent(context, WebViewActivity.class);
                             context.startActivity(intent2);
                             break;
-                        case "CustomNavigationMenu":
+                        case "#3 CustomNavigationMenu":
                             Intent intent3 = new Intent(context, CustomNavigationMenuActivity.class);
                             context.startActivity(intent3);
                             break;
-                        case "CameraPreview":
+                        case "#4 CameraPreview":
                             Intent intent4 = new Intent(context, CameraPreviewActivity.class);
                             context.startActivity(intent4);
                             break;
-                        case "ThreadHandler":
+                        case "#5 ThreadHandler":
                             Intent intent5 = new Intent(context, ThreadHandlerActivity.class);
                             context.startActivity(intent5);
                             break;
-                        case "Dialog":
+                        case "#6 Dialog":
                             Intent intent6 = new Intent(context, DialogActivity.class);
                             context.startActivity(intent6);
                             break;
-                        case "BackgroundMusic":
+                        case "#7 BackgroundMusic":
                             Intent intent7 = new Intent(context, BackgroundMusicActivity.class);
                             context.startActivity(intent7);
                             break;
-                        case "LoadingAnimation":
+                        case "#8 LoadingAnimation":
                             Intent intent8 = new Intent(context, LoadingAnimationActivity.class);
                             context.startActivity(intent8);
                             break;
-                        case "MediaPlayer":
+                        case "#9 MediaPlayer":
                             Intent intent9 = new Intent(context, MediaPlayerActivity.class);
                             context.startActivity(intent9);
                             break;
-                        case "GoogleMap":
+                        case "#10 GoogleMap":
                             Intent intent10 = new Intent(context, GoogleMapActivity.class);
                             context.startActivity(intent10);
                             break;
-                        case "BottomNavigation":
+                        case "#11 BottomNavigation":
                             Intent intent11 = new Intent(context, BottomNavigationActivity.class);
                             context.startActivity(intent11);
                             break;
-                        case "StartActivityForResult":
+                        case "#12 StartActivityForResult":
                             Intent intent12 = new Intent(context, ComebackActivity.class);
                             context.startActivity(intent12);
                             break;
-                        case "ButtonSelector":
+                        case "#13 ButtonSelector":
                             Intent intent13 = new Intent(context, ButtonSelectorActivity.class);
                             context.startActivity(intent13);
                             break;
-                        case "LoginSignUp":
+                        case "#14 LoginSignUp":
                             Intent intent14 = new Intent(context, LoginActivity.class);
                             context.startActivity(intent14);
                             break;
-                        case "FullVideo":
+                        case "#15 FullVideo":
                             Intent intent15 = new Intent(context, VideoViewActivity.class);
                             context.startActivity(intent15);
                             break;
-                        case "ViewPager":
+                        case "#16 ViewPager":
                             Intent intent16 = new Intent(context, ViewPagerActivity.class);
                             context.startActivity(intent16);
                             break;
-                        case "RadioButton":
+                        case "#17 RadioButton":
                             Intent intent17 = new Intent(context, RadioButtonActivity.class);
                             context.startActivity(intent17);
                             break;
-                        case "CheckBox":
+                        case "#18 CheckBox":
                             Intent intent18 = new Intent(context, CheckBoxActivity.class);
                             context.startActivity(intent18);
                             break;
@@ -155,7 +155,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
                 } else if (selectedExamCategory.equals("Do it! 개정 5판")) {
                     switch (selectedExamTitle) {
-                        case "Service":
+                        case "#1 Service":
                             Intent intent19 = new Intent(context, ServiceActivity.class);
                             context.startActivity(intent19);
                             break;
@@ -163,31 +163,31 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
                 } else if (selectedExamCategory.equals("기타")) {
                     switch (selectedExamTitle) {
-                        case "OpenCameraGallery":
+                        case "#1 OpenCameraGallery":
                             Intent intent20 = new Intent(context, OpenCameraGalleryActivity.class);
                             context.startActivity(intent20);
                             break;
-                        case "KakaoLogin":
+                        case "#2 KakaoLogin":
                             Intent intent21 = new Intent(context, KakaoLoginActivity.class);
                             context.startActivity(intent21);
                             break;
-                        case "NaverLogin":
+                        case "#3 NaverLogin":
                             Intent intent22 = new Intent(context, NaverLoginActivity.class);
                             context.startActivity(intent22);
                             break;
-                        case "FacebookLogin":
+                        case "#4 FacebookLogin":
                             Intent intent23 = new Intent(context, FacebookLoginActivity.class);
                             context.startActivity(intent23);
                             break;
-                        case "Firebase Storage":
+                        case "#5 Firebase Storage":
                             Intent intent24 = new Intent(context, FirebaseStorageActivity.class);
                             context.startActivity(intent24);
                             break;
-                        case "카카오링크":
+                        case "#6 카카오링크":
                             Intent intent25 = new Intent(context, KakaoLinkActivity.class);
                             context.startActivity(intent25);
                             break;
-                        case "NavigationView":
+                        case "#7 NavigationView":
                             Intent intent26 = new Intent(context, NavigationViewActivity.class);
                             context.startActivity(intent26);
                             break;
