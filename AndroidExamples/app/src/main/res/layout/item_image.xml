@@ -8,6 +8,5 @@
         android:id="@+id/iv_uploaded_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true" />
+        android:scaleType="centerCrop"/>
 </LinearLayout>

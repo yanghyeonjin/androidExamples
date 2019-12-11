@@ -3,11 +3,13 @@ package com.yanghyeonjin.androidexamples.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -95,6 +97,13 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
 
             /* 아이디 연결 */
             this.ivUploadedImage = itemView.findViewById(R.id.iv_uploaded_image);
+
+            /* 이미지 크기 똑같이 설정 */
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            int imageWidthHeightPx = displayMetrics.widthPixels / 4;
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(imageWidthHeightPx, imageWidthHeightPx);
+            this.ivUploadedImage.setLayoutParams(layoutParams);
+
         }
     }
 }

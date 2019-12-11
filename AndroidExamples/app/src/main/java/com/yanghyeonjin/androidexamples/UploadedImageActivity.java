@@ -3,7 +3,6 @@ package com.yanghyeonjin.androidexamples;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -15,9 +14,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.yanghyeonjin.androidexamples.adapter.ExampleAdapter;
 import com.yanghyeonjin.androidexamples.adapter.ImageAdapter;
-import com.yanghyeonjin.androidexamples.model.Example;
 import com.yanghyeonjin.androidexamples.model.Image;
 
 import java.util.ArrayList;
@@ -29,7 +26,7 @@ public class UploadedImageActivity extends AppCompatActivity {
 
     private RecyclerView rvUploadedImage;
     private RecyclerView.Adapter uploadedImageAdapter;
-    private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView.LayoutManager gridLayoutManager;
     private ArrayList<Image> uploadedImageArrayList;
 
     private Context uploadedImageContext;
@@ -49,8 +46,8 @@ public class UploadedImageActivity extends AppCompatActivity {
 
         /* 리사이클러뷰 셋팅 */
         rvUploadedImage.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
-        layoutManager = new GridLayoutManager(uploadedImageContext, 4);
-        rvUploadedImage.setLayoutManager(layoutManager);
+        gridLayoutManager = new GridLayoutManager(uploadedImageContext, 4);
+        rvUploadedImage.setLayoutManager(gridLayoutManager);
 
 
         /* Image 객체를 담을 ArrayList (Adapter 쪽으로 전달) */
@@ -65,7 +62,6 @@ public class UploadedImageActivity extends AppCompatActivity {
                     Image existImage = snapshot.getValue(Image.class);
 
                     if (existImage != null) {
-                        Log.e(LOG_TAG, existImage.getLocation());
                         uploadedImageArrayList.add(existImage);
                     } else {
                         Log.e(LOG_TAG, "existImage is null");
