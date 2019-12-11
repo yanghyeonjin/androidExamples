@@ -35,6 +35,7 @@ import com.yanghyeonjin.androidexamples.R;
 import com.yanghyeonjin.androidexamples.RadioButtonActivity;
 import com.yanghyeonjin.androidexamples.ServiceActivity;
 import com.yanghyeonjin.androidexamples.SharedPreferencesActivity;
+import com.yanghyeonjin.androidexamples.SMSReceiverActivity;
 import com.yanghyeonjin.androidexamples.ThreadHandlerActivity;
 import com.yanghyeonjin.androidexamples.VideoViewActivity;
 import com.yanghyeonjin.androidexamples.ViewPagerActivity;
@@ -158,6 +159,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "#1 Service":
                             Intent intent19 = new Intent(context, ServiceActivity.class);
                             context.startActivity(intent19);
+                            break;
+                        case "#2 문자내용 가져오기":
+                            Intent smsIntent = new Intent(context, SMSReceiverActivity.class);
+                            context.startActivity(smsIntent);
                             break;
                     }
 
