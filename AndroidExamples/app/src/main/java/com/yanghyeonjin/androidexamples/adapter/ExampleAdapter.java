@@ -18,6 +18,7 @@ import com.yanghyeonjin.androidexamples.ButtonSelectorActivity;
 import com.yanghyeonjin.androidexamples.CameraPreviewActivity;
 import com.yanghyeonjin.androidexamples.CheckBoxActivity;
 import com.yanghyeonjin.androidexamples.ComebackActivity;
+import com.yanghyeonjin.androidexamples.CurrentLocationActivity;
 import com.yanghyeonjin.androidexamples.CustomNavigationMenuActivity;
 import com.yanghyeonjin.androidexamples.DialogActivity;
 import com.yanghyeonjin.androidexamples.FacebookLoginActivity;
@@ -210,6 +211,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "#7 NavigationView":
                             Intent intent26 = new Intent(context, NavigationViewActivity.class);
                             context.startActivity(intent26);
+                            break;
+                        case "#8 현재 위치":
+                            Intent gpsIntent = new Intent(context, CurrentLocationActivity.class);
+                            context.startActivity(gpsIntent);
                             break;
                     }
                 }
