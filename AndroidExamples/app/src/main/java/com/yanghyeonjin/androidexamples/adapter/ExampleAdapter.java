@@ -37,6 +37,7 @@ import com.yanghyeonjin.androidexamples.ServiceActivity;
 import com.yanghyeonjin.androidexamples.SharedPreferencesActivity;
 import com.yanghyeonjin.androidexamples.SMSReceiverActivity;
 import com.yanghyeonjin.androidexamples.ThreadHandlerActivity;
+import com.yanghyeonjin.androidexamples.TouchEventActivity;
 import com.yanghyeonjin.androidexamples.VideoViewActivity;
 import com.yanghyeonjin.androidexamples.ViewPagerActivity;
 import com.yanghyeonjin.androidexamples.WebViewActivity;
@@ -163,6 +164,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "#2 문자내용 가져오기":
                             Intent smsIntent = new Intent(context, SMSReceiverActivity.class);
                             context.startActivity(smsIntent);
+                            break;
+                        case "#3 터치 이벤트":
+                            Intent touchEventIntent = new Intent(context, TouchEventActivity.class);
+                            context.startActivity(touchEventIntent);
                             break;
                     }
 
