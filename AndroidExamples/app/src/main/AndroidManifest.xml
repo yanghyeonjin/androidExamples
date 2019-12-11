@@ -20,7 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ToastActivity"></activity>
+        <activity android:name=".SnackbarAlertDialogActivity"></activity>
+        <activity android:name=".ToastActivity" />
         <activity android:name=".TouchEventActivity" />
         <activity android:name=".SMSReceiverActivity" />
         <activity android:name=".NavigationViewActivity" />

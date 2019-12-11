@@ -36,6 +36,7 @@ import com.yanghyeonjin.androidexamples.RadioButtonActivity;
 import com.yanghyeonjin.androidexamples.ServiceActivity;
 import com.yanghyeonjin.androidexamples.SharedPreferencesActivity;
 import com.yanghyeonjin.androidexamples.SMSReceiverActivity;
+import com.yanghyeonjin.androidexamples.SnackbarAlertDialogActivity;
 import com.yanghyeonjin.androidexamples.ThreadHandlerActivity;
 import com.yanghyeonjin.androidexamples.ToastActivity;
 import com.yanghyeonjin.androidexamples.TouchEventActivity;
@@ -173,6 +174,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "#4 토스트 모양, 위치 바꾸기":
                             Intent toastIntent = new Intent(context, ToastActivity.class);
                             context.startActivity(toastIntent);
+                            break;
+                        case "#5 스낵바, AlertDialog":
+                            Intent snackbarAlertDialogIntent = new Intent(context, SnackbarAlertDialogActivity.class);
+                            context.startActivity(snackbarAlertDialogIntent);
                             break;
                     }
 
