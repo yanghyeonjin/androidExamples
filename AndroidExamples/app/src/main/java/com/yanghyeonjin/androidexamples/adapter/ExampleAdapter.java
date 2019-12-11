@@ -37,6 +37,7 @@ import com.yanghyeonjin.androidexamples.ServiceActivity;
 import com.yanghyeonjin.androidexamples.SharedPreferencesActivity;
 import com.yanghyeonjin.androidexamples.SMSReceiverActivity;
 import com.yanghyeonjin.androidexamples.ThreadHandlerActivity;
+import com.yanghyeonjin.androidexamples.ToastActivity;
 import com.yanghyeonjin.androidexamples.TouchEventActivity;
 import com.yanghyeonjin.androidexamples.VideoViewActivity;
 import com.yanghyeonjin.androidexamples.ViewPagerActivity;
@@ -168,6 +169,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "#3 터치 이벤트":
                             Intent touchEventIntent = new Intent(context, TouchEventActivity.class);
                             context.startActivity(touchEventIntent);
+                            break;
+                        case "#4 토스트 모양, 위치 바꾸기":
+                            Intent toastIntent = new Intent(context, ToastActivity.class);
+                            context.startActivity(toastIntent);
                             break;
                     }
 
