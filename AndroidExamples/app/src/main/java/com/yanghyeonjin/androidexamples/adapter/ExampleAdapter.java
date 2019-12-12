@@ -35,6 +35,7 @@ import com.yanghyeonjin.androidexamples.NavigationViewActivity;
 import com.yanghyeonjin.androidexamples.OpenCameraGalleryActivity;
 import com.yanghyeonjin.androidexamples.R;
 import com.yanghyeonjin.androidexamples.RadioButtonActivity;
+import com.yanghyeonjin.androidexamples.SaveToPDFActivity;
 import com.yanghyeonjin.androidexamples.ServiceActivity;
 import com.yanghyeonjin.androidexamples.SharedPreferencesActivity;
 import com.yanghyeonjin.androidexamples.SMSReceiverActivity;
@@ -220,6 +221,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "#9 달력":
                             Intent calendarIntent = new Intent(context, CalendarActivity.class);
                             context.startActivity(calendarIntent);
+                            break;
+                        case "#10 pdf로 저장하기":
+                            Intent pdfIntent = new Intent(context, SaveToPDFActivity.class);
+                            context.startActivity(pdfIntent);
                             break;
                     }
                 }
