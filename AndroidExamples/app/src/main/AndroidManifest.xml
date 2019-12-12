@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.yanghyeonjin.androidexamples">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -21,8 +22,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_study_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".SaveToPDFActivity"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity android:name=".BoxOfficeRetrofitActivity"></activity>
+        <activity android:name=".SaveToPDFActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".CurrentLocationActivity" />
         <activity android:name=".SnackbarAlertDialogActivity" />

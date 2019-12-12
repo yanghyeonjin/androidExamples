@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.yanghyeonjin.androidexamples.BackgroundMusicActivity;
 import com.yanghyeonjin.androidexamples.BottomNavigationActivity;
+import com.yanghyeonjin.androidexamples.BoxOfficeRetrofitActivity;
 import com.yanghyeonjin.androidexamples.ButtonSelectorActivity;
 import com.yanghyeonjin.androidexamples.CalendarActivity;
 import com.yanghyeonjin.androidexamples.CameraPreviewActivity;
@@ -225,6 +226,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "#10 pdf로 저장하기":
                             Intent pdfIntent = new Intent(context, SaveToPDFActivity.class);
                             context.startActivity(pdfIntent);
+                            break;
+                        case "#11 Retrofit2 박스오피스":
+                            Intent boxOfficeRetrofit2Intent = new Intent(context, BoxOfficeRetrofitActivity.class);
+                            context.startActivity(boxOfficeRetrofit2Intent);
                             break;
                     }
                 }
