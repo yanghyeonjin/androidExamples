@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
 
 import android.Manifest;
 import android.app.Activity;
@@ -23,13 +24,24 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.yanghyeonjin.androidexamples.service.GpsTracker;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class CurrentLocationActivity extends AppCompatActivity {
+public class CurrentLocationActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GpsTracker gpsTracker;
 
@@ -45,6 +57,11 @@ public class CurrentLocationActivity extends AppCompatActivity {
     private Context currentLocationContext;
     private Activity currentLocationActivity;
 
+    private SupportMapFragment supportMapFragment;
+
+    private GoogleMap currentLocationMap;
+    private Marker currentMarker = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +69,12 @@ public class CurrentLocationActivity extends AppCompatActivity {
 
         currentLocationContext = CurrentLocationActivity.this;
         currentLocationActivity = CurrentLocationActivity.this;
+
+        /* 구글맵 */
+        supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_current_location);
+        if (supportMapFragment != null) {
+            supportMapFragment.getMapAsync(this);
+        }
 
 
         /* 아이디 연결 */
@@ -77,14 +100,28 @@ public class CurrentLocationActivity extends AppCompatActivity {
 
                 double latitude = gpsTracker.getLatitude();
                 double longitude = gpsTracker.getLongitude();
+                LatLng curLatLng = new LatLng(latitude, longitude);
 
                 String strLatitude = "위도: " + latitude;
                 String strLongitude = "경도: " + longitude;
-                String address = getCurrentAddress(latitude, longitude);
+                Address addressInfo = getCurrentAddress(latitude, longitude);
 
-                tvLatitude.setText(strLatitude);
-                tvLongitude.setText(strLongitude);
-                tvCurrentLocation.setText(address);
+                if (addressInfo != null) {
+                    String detailAddress = addressInfo.getAddressLine(0) + "\n";
+                    String markerTitle = addressInfo.getAdminArea() + " " + addressInfo.getSubLocality() + " " + addressInfo.getThoroughfare();
+
+                    tvLatitude.setText(strLatitude);
+                    tvLongitude.setText(strLongitude);
+                    tvCurrentLocation.setText(detailAddress);
+
+                    setCurrentLocationMarker(curLatLng, markerTitle, detailAddress);
+                } else {
+                    /* addressInfo is null */
+                    tvLatitude.setText("현재 위도는?");
+                    tvLongitude.setText("현재 경도는?");
+                    tvCurrentLocation.setText("현재 위치는?");
+                }
+
             }
         });
 
@@ -160,7 +197,7 @@ public class CurrentLocationActivity extends AppCompatActivity {
     }
 
     /* 위도, 경도로 현재 주소 가져오기 */
-    public String getCurrentAddress(double latitude, double longitude) {
+    public Address getCurrentAddress(double latitude, double longitude) {
 
         /* 지오코더... GPS를 주소로 변환*/
         Geocoder geocoder = new Geocoder(currentLocationContext, Locale.getDefault());
@@ -175,21 +212,21 @@ public class CurrentLocationActivity extends AppCompatActivity {
         } catch (IOException ioException) {
             /* 네트워크 문제 */
             Toast.makeText(currentLocationContext, "지오코더 서비스 사용불가", Toast.LENGTH_LONG).show();
-            return "지오코더 서비스 사용불가";
+            return null;
         } catch (IllegalArgumentException illegalArgumentException) {
             Toast.makeText(currentLocationContext, "잘못된 GPS 좌표", Toast.LENGTH_LONG).show();
-            return "잘못된 GPS 좌표";
+            return null;
         }
 
 
         if (addresses == null || addresses.size() == 0) {
             Toast.makeText(currentLocationContext, "주소 미발견", Toast.LENGTH_LONG).show();
-            return "주소 미발견";
+            return null;
         }
 
-
         Address address = addresses.get(0);
-        return address.getAddressLine(0) +"\n";
+        Log.e(LOG_TAG, "getCurrentAddress --- adminArea: " + address.getAdminArea() + ", subLocality: " + address.getSubLocality() + ", thoroughfare: " + address.getThoroughfare() + ", subThoroughfare: " + address.getThoroughfare());
+        return address;
     }
 
 
@@ -238,5 +275,53 @@ public class CurrentLocationActivity extends AppCompatActivity {
             Log.d(LOG_TAG, "checkLocationServicesStatus : locationManager is null");
             return false;
         }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+        currentLocationMap = googleMap;
+
+        /* 지도의 초기위치를 서울로 설정*/
+        setDefaultLocation();
+    }
+
+    public void setDefaultLocation() {
+        LatLng defaultLocation = new LatLng(37.56, 126.97);
+        String markerTitle = "위치정보 가져올 수 없음";
+        String markerSnippet = "위치 퍼미션과 GPS 활성 요부 확인하세요";
+
+        if (currentMarker != null) {
+            currentMarker.remove();
+        }
+
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(defaultLocation);
+        markerOptions.title(markerTitle);
+        markerOptions.snippet(markerSnippet);
+        markerOptions.draggable(true);
+        currentMarker = currentLocationMap.addMarker(markerOptions);
+
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(defaultLocation, 15);
+        currentLocationMap.moveCamera(cameraUpdate);
+    }
+
+    public void setCurrentLocationMarker(LatLng latLng, String markerTitle, String detailAddress) {
+
+        if (currentMarker != null) {
+            currentMarker.remove();
+        }
+
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(latLng);
+        markerOptions.title(markerTitle);
+        markerOptions.snippet(detailAddress);
+
+        markerOptions.draggable(true);
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        currentMarker = currentLocationMap.addMarker(markerOptions);
+
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
+        currentLocationMap.moveCamera(cameraUpdate);
     }
 }
