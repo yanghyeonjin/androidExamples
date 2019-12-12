@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.yanghyeonjin.androidexamples.BackgroundMusicActivity;
 import com.yanghyeonjin.androidexamples.BottomNavigationActivity;
 import com.yanghyeonjin.androidexamples.ButtonSelectorActivity;
+import com.yanghyeonjin.androidexamples.CalendarActivity;
 import com.yanghyeonjin.androidexamples.CameraPreviewActivity;
 import com.yanghyeonjin.androidexamples.CheckBoxActivity;
 import com.yanghyeonjin.androidexamples.ComebackActivity;
@@ -215,6 +216,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "#8 현재 위치":
                             Intent gpsIntent = new Intent(context, CurrentLocationActivity.class);
                             context.startActivity(gpsIntent);
+                            break;
+                        case "#9 달력":
+                            Intent calendarIntent = new Intent(context, CalendarActivity.class);
+                            context.startActivity(calendarIntent);
                             break;
                     }
                 }
