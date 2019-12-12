@@ -25,7 +25,11 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".BoxOfficeRetrofitActivity"></activity>
+        <activity
+            android:name=".RetrofitExample2Activity"
+            android:label="@string/title_activity_retrofit_example2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".BoxOfficeRetrofitActivity" />
         <activity android:name=".SaveToPDFActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".CurrentLocationActivity" />

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">안드로이드예제</string>
+    <string name="title_activity_retrofit_example2">RetrofitExample2Activity</string>
 </resources>

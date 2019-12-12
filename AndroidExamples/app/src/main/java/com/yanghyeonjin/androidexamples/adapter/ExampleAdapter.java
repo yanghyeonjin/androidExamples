@@ -36,6 +36,7 @@ import com.yanghyeonjin.androidexamples.NavigationViewActivity;
 import com.yanghyeonjin.androidexamples.OpenCameraGalleryActivity;
 import com.yanghyeonjin.androidexamples.R;
 import com.yanghyeonjin.androidexamples.RadioButtonActivity;
+import com.yanghyeonjin.androidexamples.RetrofitExample2Activity;
 import com.yanghyeonjin.androidexamples.SaveToPDFActivity;
 import com.yanghyeonjin.androidexamples.ServiceActivity;
 import com.yanghyeonjin.androidexamples.SharedPreferencesActivity;
@@ -230,6 +231,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "#11 Retrofit2 박스오피스":
                             Intent boxOfficeRetrofit2Intent = new Intent(context, BoxOfficeRetrofitActivity.class);
                             context.startActivity(boxOfficeRetrofit2Intent);
+                            break;
+                        case "#12 Retrofit2 예제2":
+                            Intent retrofitExample2Intent = new Intent(context, RetrofitExample2Activity.class);
+                            context.startActivity(retrofitExample2Intent);
                             break;
                     }
                 }
