@@ -27,6 +27,7 @@ import com.yanghyeonjin.androidexamples.FacebookLoginActivity;
 import com.yanghyeonjin.androidexamples.FirebaseStorageActivity;
 import com.yanghyeonjin.androidexamples.GoogleMapActivity;
 import com.yanghyeonjin.androidexamples.KakaoLinkActivity;
+import com.yanghyeonjin.androidexamples.KakaoLocalActivity;
 import com.yanghyeonjin.androidexamples.KakaoLoginActivity;
 import com.yanghyeonjin.androidexamples.LoadingAnimationActivity;
 import com.yanghyeonjin.androidexamples.LoginActivity;
@@ -235,6 +236,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "#12 Retrofit2 예제2":
                             Intent retrofitExample2Intent = new Intent(context, RetrofitExample2Activity.class);
                             context.startActivity(retrofitExample2Intent);
+                            break;
+                        case "#13 카카오 로컬 (okhttp3)":
+                            Intent kakaoLocalIntent = new Intent(context, KakaoLocalActivity.class);
+                            context.startActivity(kakaoLocalIntent);
                             break;
                     }
                 }

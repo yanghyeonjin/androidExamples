@@ -10,6 +10,7 @@ import com.yanghyeonjin.androidexamples.model.Contributor;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -47,7 +48,7 @@ public class RetrofitExample2Activity extends AppCompatActivity {
         });
 
         /* 동기 */
-        new AsyncTask<Void, Void, String>() {
+        /*new AsyncTask<Void, Void, String>() {
 
             @Override
             protected String doInBackground(Void... voids) {
@@ -70,23 +71,24 @@ public class RetrofitExample2Activity extends AppCompatActivity {
                 TextView tvRetrofitExample2 = findViewById(R.id.tv_retrofit_example2);
                 tvRetrofitExample2.setText(s);
             }
-        }.execute();
+        }.execute();*/
 
         /* 비동기 */
-        /*GitHubService gitHubService = GitHubService.retrofit.create(GitHubService.class);
+        GitHubService gitHubService = GitHubService.retrofit.create(GitHubService.class);
         Call<List<Contributor>> call = gitHubService.repoContributors("square", "retrofit");
         call.enqueue(new Callback<List<Contributor>>() {
             @Override
             public void onResponse(Call<List<Contributor>> call, Response<List<Contributor>> response) {
                 TextView tvRetrofitExample2 =  findViewById(R.id.tv_retrofit_example2);
                 tvRetrofitExample2.setText(response.body().toString());
+                Log.e("RetrofitExample2", String.valueOf(response));
             }
 
             @Override
             public void onFailure(Call<List<Contributor>> call, Throwable t) {
 
             }
-        });*/
+        });
     }
 
 }
