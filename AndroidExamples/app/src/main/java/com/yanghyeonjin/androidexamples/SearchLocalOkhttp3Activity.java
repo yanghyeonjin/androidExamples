@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
+import com.yanghyeonjin.androidexamples.model.KakaoLocalKeywordResult;
 import com.yanghyeonjin.androidexamples.model.NaverSearchLocalResult;
 
 import java.io.IOException;
@@ -31,28 +32,40 @@ public class SearchLocalOkhttp3Activity extends AppCompatActivity {
 
 
         /* 카카오 */
-        /*OkHttpClient client = new OkHttpClient();
+        OkHttpClient kakaoHttpClient = new OkHttpClient();
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://dapi.kakao.com/v2/local/search/keyword.json").newBuilder();
-        urlBuilder.addEncodedQueryParameter("query", "파스타");
-        String requestUrl = urlBuilder.build().toString();
+        HttpUrl.Builder kakaoUrlBuilder = HttpUrl.parse("https://dapi.kakao.com/v2/local/search/keyword.json").newBuilder();
+        kakaoUrlBuilder.addEncodedQueryParameter("query", "파스타");
+        String kakaoRequestUrl = kakaoUrlBuilder.build().toString();
 
-        Request request = new Request.Builder()
+        Request kakaoRequest = new Request.Builder()
                 .addHeader("Authorization", kakaoLocalAppKey)
-                .url(requestUrl)
+                .url(kakaoRequestUrl)
                 .build();
 
-        client.newCall(request).enqueue(new Callback() {
+        kakaoHttpClient.newCall(kakaoRequest).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e("KakaoLocal", "error + Connect Server Error is " + e.toString());
+                Log.e("kakao: onFailure", "error + Connect Server Error is " + e.toString());
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                Log.e("KakaoLocal", "Response Body is " + response.body().string());
+                if (response.body() != null) {
+                    /* response.body().string()은 한번만 호출하자. */
+                    String result = response.body().string();
+
+                    Gson gson = new Gson();
+                    KakaoLocalKeywordResult kakaoLocalKeywordResult = gson.fromJson(result, KakaoLocalKeywordResult.class);
+
+                    Log.e("placeName", kakaoLocalKeywordResult.getDocuments().get(0).getPlaceName());
+                    Log.e("address", kakaoLocalKeywordResult.getDocuments().get(0).getAddressName());
+                    Log.e("roadAddress", kakaoLocalKeywordResult.getDocuments().get(0).getRoadAddressName());
+                } else {
+                    Log.e("kakao: onResponse", "Response Body is null");
+                }
             }
-        });*/
+        });
 
 
         /* 네이버 */
