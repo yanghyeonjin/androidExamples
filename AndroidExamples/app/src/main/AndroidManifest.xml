@@ -25,7 +25,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".KakaoLocalActivity"></activity>
+        <activity android:name=".KakaoLocalOkhttp3Activity"></activity>
         <activity
             android:name=".RetrofitExample2Activity"
             android:label="@string/title_activity_retrofit_example2"

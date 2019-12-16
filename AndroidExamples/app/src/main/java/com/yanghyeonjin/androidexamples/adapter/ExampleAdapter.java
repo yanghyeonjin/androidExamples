@@ -27,7 +27,7 @@ import com.yanghyeonjin.androidexamples.FacebookLoginActivity;
 import com.yanghyeonjin.androidexamples.FirebaseStorageActivity;
 import com.yanghyeonjin.androidexamples.GoogleMapActivity;
 import com.yanghyeonjin.androidexamples.KakaoLinkActivity;
-import com.yanghyeonjin.androidexamples.KakaoLocalActivity;
+import com.yanghyeonjin.androidexamples.KakaoLocalOkhttp3Activity;
 import com.yanghyeonjin.androidexamples.KakaoLoginActivity;
 import com.yanghyeonjin.androidexamples.LoadingAnimationActivity;
 import com.yanghyeonjin.androidexamples.LoginActivity;
@@ -238,7 +238,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                             context.startActivity(retrofitExample2Intent);
                             break;
                         case "#13 카카오 로컬 (okhttp3)":
-                            Intent kakaoLocalIntent = new Intent(context, KakaoLocalActivity.class);
+                            Intent kakaoLocalIntent = new Intent(context, KakaoLocalOkhttp3Activity.class);
                             context.startActivity(kakaoLocalIntent);
                             break;
                     }
