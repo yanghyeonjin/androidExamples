@@ -1,260 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".SearchLocalOkhttp3Activity">
 
-    <LinearLayout
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_search_local"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        app:layout_constraintBottom_toTopOf="@+id/const_vp_search_local"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!-- 카카오 검색 -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:orientation="vertical">
+            android:text="카카오" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:gravity="center"
-                android:text="카카오 로컬 - 키워드 검색"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/et_kakao_search_local"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:hint="음식점을 입력하세요" />
-
-                <Button
-                    android:id="@+id/btn_kakao_search_local"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="카카오 검색" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="식당이름" />
-
-                <TextView
-                    android:id="@+id/tv_kakao_result_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="식당이름은?" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="지번주소" />
-
-                <TextView
-                    android:id="@+id/tv_kakao_result_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="지번주소는?" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="도로명주소" />
-
-                <TextView
-                    android:id="@+id/tv_kakao_result_road_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="도로명주소는?" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="전화번호" />
-
-                <TextView
-                    android:id="@+id/tv_kakao_result_tel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="전화번호는?" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-
-        <!-- 네이버 검색 -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="네이버" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:gravity="center"
-                android:text="네이버 검색 - 지역"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="구글" />
+    </com.google.android.material.tabs.TabLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/const_vp_search_local"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_search_local">
 
-                <EditText
-                    android:id="@+id/et_naver_search_local"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:hint="음식점을 입력하세요" />
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_search_local"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/btn_naver_search_local"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="네이버 검색" />
-            </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="식당이름" />
-
-                <TextView
-                    android:id="@+id/tv_naver_result_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="식당이름은?" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="지번주소" />
-
-                <TextView
-                    android:id="@+id/tv_naver_result_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="지번주소는?" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="도로명주소" />
-
-                <TextView
-                    android:id="@+id/tv_naver_result_road_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="도로명주소는?" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="전화번호" />
-
-                <TextView
-                    android:id="@+id/tv_naver_result_tel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="전화번호는?" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-
-    </LinearLayout>
-</ScrollView>
-
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,16 +24,11 @@ public class CalendarActivity extends AppCompatActivity implements RadioGroup.On
 
     private CalendarView calendarView;
     private RadioGroup rgSelectionType;
-    private Toolbar tbCalendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-
-        /* 아이디 연결 */
-        tbCalendar = findViewById(R.id.tb_calendar);
-        setSupportActionBar(tbCalendar);
 
         initViews();
     }

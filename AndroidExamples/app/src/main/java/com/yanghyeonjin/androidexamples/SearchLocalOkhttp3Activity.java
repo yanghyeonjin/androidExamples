@@ -3,18 +3,16 @@ package com.yanghyeonjin.androidexamples;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
+import com.yanghyeonjin.androidexamples.adapter.ViewPagerSearchLocalAdapter;
 import com.yanghyeonjin.androidexamples.model.KakaoLocalKeywordResult;
 import com.yanghyeonjin.androidexamples.model.NaverSearchLocalResult;
 
@@ -31,17 +29,14 @@ public class SearchLocalOkhttp3Activity extends AppCompatActivity {
 
     private String kakaoLocalAppKey, naverClientID, naverClientSecret;
 
-    private EditText etKakaoSearchLocal, etNaverSearchLocal;
-    private Button btnKakaoSearchLocal, btnNaverSearchLocal;
-    private TextView tvKakaoResultName, tvKakaoResultAddress, tvKakaoResultRoadAddress, tvKakaoResultTel;
-    private TextView tvNaverResultName, tvNaverResultAddress, tvNaverResultRoadAddress, tvNaverResultTel;
-
     private OkHttpClient kakaoHttpClient, naverHttpClient;
 
     private KakaoLocalKeywordResult kakaoResult;
     private NaverSearchLocalResult naverResult;
 
     private Handler kakaoHandler, naverHandler;
+
+    private FragmentPagerAdapter fragmentPagerAdapter;
 
 
     @Override
@@ -53,72 +48,62 @@ public class SearchLocalOkhttp3Activity extends AppCompatActivity {
         naverClientID = getString(R.string.naver_client_id);
         naverClientSecret = getString(R.string.naver_client_secret);
 
+        // 뷰페이저 세팅
+        ViewPager viewPager = findViewById(R.id.vp_search_local);
+        fragmentPagerAdapter = new ViewPagerSearchLocalAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
 
-        /* 아이디 연결 */
-        etKakaoSearchLocal = findViewById(R.id.et_kakao_search_local);
-        etNaverSearchLocal = findViewById(R.id.et_naver_search_local);
-
-        btnKakaoSearchLocal = findViewById(R.id.btn_kakao_search_local);
-        btnNaverSearchLocal = findViewById(R.id.btn_naver_search_local);
-
-        tvKakaoResultName = findViewById(R.id.tv_kakao_result_name);
-        tvKakaoResultAddress = findViewById(R.id.tv_kakao_result_address);
-        tvKakaoResultRoadAddress = findViewById(R.id.tv_kakao_result_road_address);
-        tvKakaoResultTel = findViewById(R.id.tv_kakao_result_tel);
-
-        tvNaverResultName = findViewById(R.id.tv_naver_result_name);
-        tvNaverResultAddress = findViewById(R.id.tv_naver_result_address);
-        tvNaverResultRoadAddress = findViewById(R.id.tv_naver_result_road_address);
-        tvNaverResultTel = findViewById(R.id.tv_naver_result_tel);
+        TabLayout tabLayout = findViewById(R.id.tab_search_local);
+        viewPager.setAdapter(fragmentPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
 
 
         /* 검색어 없을 때 나타나는 AlertDialog 초기화 */
-        AlertDialog.Builder builder = initNoKeyword();
+        /*AlertDialog.Builder builder = initNoKeyword();*/
 
 
 
         /* okhttp3 초기화 */
-        kakaoHttpClient = new OkHttpClient();
-        naverHttpClient = new OkHttpClient();
+        /*kakaoHttpClient = new OkHttpClient();
+        naverHttpClient = new OkHttpClient();*/
 
 
         /* 핸들러 초기화 */
-        kakaoHandler = new Handler(Looper.getMainLooper());
-        naverHandler = new Handler(Looper.getMainLooper());
+        /*kakaoHandler = new Handler(Looper.getMainLooper());
+        naverHandler = new Handler(Looper.getMainLooper());*/
 
 
 
         /* 카카오 검색 눌렀을 때 */
-        btnKakaoSearchLocal.setOnClickListener(new View.OnClickListener() {
+        /*btnKakaoSearchLocal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String kakaoKeyword = etKakaoSearchLocal.getText().toString();
 
                 if (kakaoKeyword.isEmpty()) {
-                    /* 검색창 빈칸이면 */
+                    *//* 검색창 빈칸이면 *//*
                     builder.show();
                 } else {
-                    /* 빈칸 아니면 검색 시작 */
+                    *//* 빈칸 아니면 검색 시작 *//*
                     searchKakaoLocal(kakaoKeyword);
                 }
             }
-        });
+        });*/
 
         /* 네이버 검색 눌렀을 때 */
-        btnNaverSearchLocal.setOnClickListener(new View.OnClickListener() {
+        /*btnNaverSearchLocal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String naverKeyword = etNaverSearchLocal.getText().toString();
 
                 if (naverKeyword.isEmpty()) {
-                    /* 검색창 빈칸이면 */
+                    *//* 검색창 빈칸이면 *//*
                     builder.show();
                 } else {
-                    /* 빈칸 아니면 검색 시작 */
+                    *//* 빈칸 아니면 검색 시작 *//*
                     searchNaverLocal(naverKeyword);
                 }
             }
-        });
+        });*/
     }
 
     private AlertDialog.Builder initNoKeyword() {
@@ -164,15 +149,12 @@ public class SearchLocalOkhttp3Activity extends AppCompatActivity {
                     kakaoHandler.post(new Runnable() {
                         @Override
                         public void run() {
+                            /* change UI */
+
                             String placeName = kakaoResult.getDocuments().get(0).getPlaceName();
                             String address = kakaoResult.getDocuments().get(0).getAddressName();
                             String roadAddress = kakaoResult.getDocuments().get(0).getRoadAddressName();
                             String tel = kakaoResult.getDocuments().get(0).getPhone();
-
-                            tvKakaoResultName.setText(placeName);
-                            tvKakaoResultAddress.setText(address);
-                            tvKakaoResultRoadAddress.setText(roadAddress);
-                            tvKakaoResultTel.setText(tel);
 
                         }
                     });
@@ -213,15 +195,12 @@ public class SearchLocalOkhttp3Activity extends AppCompatActivity {
                     naverHandler.post(new Runnable() {
                         @Override
                         public void run() {
+                            /* change UI */
+
                             String placeName = naverResult.getItems().get(0).getTitle();
                             String address = naverResult.getItems().get(0).getAddress();
                             String roadAddress = naverResult.getItems().get(0).getRoadAddress();
                             String tel = naverResult.getItems().get(0).getTelephone();
-
-                            tvNaverResultName.setText(placeName);
-                            tvNaverResultAddress.setText(address);
-                            tvNaverResultRoadAddress.setText(roadAddress);
-                            tvNaverResultTel.setText(tel);
                         }
                     });
 
