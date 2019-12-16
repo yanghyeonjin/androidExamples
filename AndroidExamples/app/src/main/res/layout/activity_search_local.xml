@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchLocalOkhttp3Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- 카카오 검색 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="카카오 로컬 - 키워드 검색"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_kakao_search_local"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:hint="음식점을 입력하세요" />
+
+                <Button
+                    android:id="@+id/btn_kakao_search_local"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="카카오 검색" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="식당이름" />
+
+                <TextView
+                    android:id="@+id/tv_kakao_result_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="식당이름은?" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="지번주소" />
+
+                <TextView
+                    android:id="@+id/tv_kakao_result_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="지번주소는?" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="도로명주소" />
+
+                <TextView
+                    android:id="@+id/tv_kakao_result_road_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="도로명주소는?" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="전화번호" />
+
+                <TextView
+                    android:id="@+id/tv_kakao_result_tel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="전화번호는?" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!-- 네이버 검색 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="네이버 검색 - 지역"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_naver_search_local"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:hint="음식점을 입력하세요" />
+
+                <Button
+                    android:id="@+id/btn_naver_search_local"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="네이버 검색" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="식당이름" />
+
+                <TextView
+                    android:id="@+id/tv_naver_result_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="식당이름은?" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="지번주소" />
+
+                <TextView
+                    android:id="@+id/tv_naver_result_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="지번주소는?" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="도로명주소" />
+
+                <TextView
+                    android:id="@+id/tv_naver_result_road_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="도로명주소는?" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="전화번호" />
+
+                <TextView
+                    android:id="@+id/tv_naver_result_tel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="전화번호는?" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
+
