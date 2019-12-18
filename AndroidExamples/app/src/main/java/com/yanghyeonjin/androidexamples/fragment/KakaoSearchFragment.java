@@ -98,7 +98,7 @@ public class KakaoSearchFragment extends Fragment {
 
 
 
-        /* 검색어 없을 때 나타나는 AlertDialog 초기화 */
+        /* 검색어 없을 때 나타나는 AlertDialog */
         AlertDialog.Builder builder = initNoKeyword();
 
 
@@ -165,6 +165,9 @@ public class KakaoSearchFragment extends Fragment {
 
                     List<KakaoLocalKeywordDocument> resultDoc = new ArrayList<>();
                     resultDoc = kakaoResult.getDocuments();
+
+                    /* 기존 배열 리스트가 존재하지 않도록 */
+                    searchResultItems.clear();
 
                     for (KakaoLocalKeywordDocument items : resultDoc) {
                         /* 결과 리스트의 개수 만큼 SearchResultItem 객체 만들어서 리사이클러뷰 arrayList에 추가 */
