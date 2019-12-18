@@ -66,7 +66,9 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
 
     @NonNull
     @Override
-    public SearchResultAdapter.SearchResultViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { // view holder 만들기
+    public SearchResultAdapter.SearchResultViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        // view holder 만들기
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_search_result, parent, false);
         SearchResultViewHolder searchResultViewHolder = new SearchResultViewHolder(view); // holder and view 연결
 
@@ -74,8 +76,12 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SearchResultAdapter.SearchResultViewHolder holder, final int position) { // 데이터와 view 연결
+    public void onBindViewHolder(@NonNull SearchResultAdapter.SearchResultViewHolder holder, final int position) {
 
+        // 데이터와 view 연결
+        holder.tvPlaceName.setText(searchResultItems.get(position).getPlaceName());
+        holder.tvPlaceRoadAddress.setText(searchResultItems.get(position).getPlaceRoadAddress());
+        holder.tvPlaceCategory.setText(searchResultItems.get(position).getPlaceCategory());
     }
 
     @Override

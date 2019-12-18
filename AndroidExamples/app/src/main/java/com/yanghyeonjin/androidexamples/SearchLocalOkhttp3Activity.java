@@ -27,14 +27,13 @@ import okhttp3.Response;
 
 public class SearchLocalOkhttp3Activity extends AppCompatActivity {
 
-    private String kakaoLocalAppKey, naverClientID, naverClientSecret;
+    private String naverClientID, naverClientSecret;
 
-    private OkHttpClient kakaoHttpClient, naverHttpClient;
+    private OkHttpClient naverHttpClient;
 
-    private KakaoLocalKeywordResult kakaoResult;
     private NaverSearchLocalResult naverResult;
 
-    private Handler kakaoHandler, naverHandler;
+    private Handler naverHandler;
 
     private FragmentPagerAdapter fragmentPagerAdapter;
 
@@ -44,7 +43,7 @@ public class SearchLocalOkhttp3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_local);
 
-        kakaoLocalAppKey = getString(R.string.kakao_local_app_key);
+
         naverClientID = getString(R.string.naver_client_id);
         naverClientSecret = getString(R.string.naver_client_secret);
 
@@ -57,37 +56,22 @@ public class SearchLocalOkhttp3Activity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
 
-        /* 검색어 없을 때 나타나는 AlertDialog 초기화 */
-        /*AlertDialog.Builder builder = initNoKeyword();*/
+
 
 
 
         /* okhttp3 초기화 */
-        /*kakaoHttpClient = new OkHttpClient();
+        /*
         naverHttpClient = new OkHttpClient();*/
 
 
         /* 핸들러 초기화 */
-        /*kakaoHandler = new Handler(Looper.getMainLooper());
+        /*
         naverHandler = new Handler(Looper.getMainLooper());*/
 
 
 
-        /* 카카오 검색 눌렀을 때 */
-        /*btnKakaoSearchLocal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String kakaoKeyword = etKakaoSearchLocal.getText().toString();
 
-                if (kakaoKeyword.isEmpty()) {
-                    *//* 검색창 빈칸이면 *//*
-                    builder.show();
-                } else {
-                    *//* 빈칸 아니면 검색 시작 *//*
-                    searchKakaoLocal(kakaoKeyword);
-                }
-            }
-        });*/
 
         /* 네이버 검색 눌렀을 때 */
         /*btnNaverSearchLocal.setOnClickListener(new View.OnClickListener() {
@@ -106,65 +90,9 @@ public class SearchLocalOkhttp3Activity extends AppCompatActivity {
         });*/
     }
 
-    private AlertDialog.Builder initNoKeyword() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("검색어 없음");
-        builder.setMessage("검색어를 입력해주세요.");
 
-        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
 
-        return builder;
-    }
 
-    /* 카카오 검색 */
-    private void searchKakaoLocal(String keyword) {
-        HttpUrl.Builder kakaoUrlBuilder = HttpUrl.parse("https://dapi.kakao.com/v2/local/search/keyword.json").newBuilder();
-        kakaoUrlBuilder.addEncodedQueryParameter("query", keyword);
-        String kakaoRequestUrl = kakaoUrlBuilder.build().toString();
-
-        Request kakaoRequest = new Request.Builder()
-                .addHeader("Authorization", kakaoLocalAppKey)
-                .url(kakaoRequestUrl)
-                .build();
-
-        kakaoHttpClient.newCall(kakaoRequest).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.e("kakao search", e.getMessage());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (response.body() != null) {
-                    String result = response.body().string();
-
-                    Gson gson = new Gson();
-                    kakaoResult = gson.fromJson(result, KakaoLocalKeywordResult.class);
-
-                    kakaoHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            /* change UI */
-
-                            String placeName = kakaoResult.getDocuments().get(0).getPlaceName();
-                            String address = kakaoResult.getDocuments().get(0).getAddressName();
-                            String roadAddress = kakaoResult.getDocuments().get(0).getRoadAddressName();
-                            String tel = kakaoResult.getDocuments().get(0).getPhone();
-
-                        }
-                    });
-
-                } else {
-                    Log.e("kakao search", "Response Body is null");
-                }
-            }
-        });
-    }
 
     /* 네이버 검색 */
     private void searchNaverLocal(String keyword) {
@@ -178,7 +106,7 @@ public class SearchLocalOkhttp3Activity extends AppCompatActivity {
                 .url(naverRequestUrl)
                 .build();
 
-        kakaoHttpClient.newCall(naverRequest).enqueue(new Callback() {
+        naverHttpClient.newCall(naverRequest).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e("naver search", e.getMessage());
