@@ -51,7 +51,7 @@ dependencies {
     /* 로딩화면 라이브러리 */
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 
-    /* 구글 맵 */
+    /* 구글 */
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-location:17.0.0'
 
