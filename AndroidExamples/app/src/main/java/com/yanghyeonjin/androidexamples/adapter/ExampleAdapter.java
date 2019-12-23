@@ -24,6 +24,7 @@ import com.yanghyeonjin.androidexamples.CurrentLocationActivity;
 import com.yanghyeonjin.androidexamples.CustomNavigationMenuActivity;
 import com.yanghyeonjin.androidexamples.DialogActivity;
 import com.yanghyeonjin.androidexamples.FacebookLoginActivity;
+import com.yanghyeonjin.androidexamples.FirebaseGoogleLogin;
 import com.yanghyeonjin.androidexamples.FirebaseStorageActivity;
 import com.yanghyeonjin.androidexamples.GoogleMapActivity;
 import com.yanghyeonjin.androidexamples.KakaoLinkActivity;
@@ -160,6 +161,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         case "#18 CheckBox":
                             Intent intent18 = new Intent(context, CheckBoxActivity.class);
                             context.startActivity(intent18);
+                            break;
+                        case "#19 파이어베이스 구글 로그인":
+                            Intent firebaseGoogleLogin = new Intent(context, FirebaseGoogleLogin.class);
+                            context.startActivity(firebaseGoogleLogin);
                             break;
                     }
 

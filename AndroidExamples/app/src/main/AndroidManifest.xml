@@ -25,6 +25,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".FirebaseGoogleLoginSuccess"></activity>
+        <activity android:name=".FirebaseGoogleLogin" />
         <activity android:name=".SearchLocalOkhttp3Activity" />
         <activity
             android:name=".RetrofitExample2Activity"
@@ -102,7 +104,8 @@
             android:value="@string/kakao_app_key" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
+            android:value="@string/facebook_app_id"
+            tools:replace="android:value" />
 
         <activity
             android:name="com.facebook.FacebookActivity"
